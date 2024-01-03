@@ -1,4 +1,5 @@
-
+/* Intro to arrow functions in es6
+*/
 export default function getNeighborhoodsList() {
     this.sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];
 

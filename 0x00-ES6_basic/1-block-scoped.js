@@ -1,3 +1,4 @@
+/* Difference btn const and let in es6 */
 export default function taskBlock (trueOrFalse) {
   const task = false
   const task2 = true
