@@ -1,6 +1,6 @@
 import { taskFirst, taskLast, taskNext } from '../0-constants'
 
-describe('testFisrt', () => {
+describe('testFirst', () => {
     it('I prefer const when I can.', () =>{
         const result = taskFirst();
     });
