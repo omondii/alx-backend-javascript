@@ -14,6 +14,6 @@ describe('testNext', () => {
 
 describe('testLast', () => {
     it('is okay', () => {
-        const result = taskLast
+        const result = taskLast;
     });
 });
