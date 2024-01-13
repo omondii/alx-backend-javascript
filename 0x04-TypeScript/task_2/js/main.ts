@@ -10,7 +10,7 @@ interface DirectorInterface {
 interface TeacherInterface {
     workFromHome(): string;
     getCoffeeBreak(): string;
-    workDirectorTasks(): string;
+    workTeacherTasks(): string;
 }
 
 // A class to implement the DirectorInterface
@@ -28,6 +28,7 @@ class Director implements DirectorInterface {
     }
 }
 
+// Class to implement the TeacherInterface
 class Teacher implements TeacherInterface {
     workFromHome(): string {
         return 'Cannot work from home';
@@ -37,11 +38,12 @@ class Teacher implements TeacherInterface {
         return 'Cannot have a break';
     }
 
-    workDirectorTasks(): string {
+    workTeacherTasks(): string {
         return 'Getting to work'
     }
 }
 
+//Interface for createEmployee function
 interface createEmployeeFunc {
     (salary: number | string): Director | Teacher;
 }
@@ -54,6 +56,24 @@ const createEmployee: createEmployeeFunc = (salary) => {
     }
 }
 
+// Type-predicate function
+function isDirector(employee: Director | Teacher): employee is Director {
+    return 'workDirectorTasks' in employee;
+}
+
+function executeWork(employee: Director | Teacher): string {
+    if ('workDirectorTasks' in employee) {
+        return employee.workDirectorTasks();
+    } else {
+        return employee.workTeacherTasks();
+    }
+}
+
+// Test cases
+/*
 console.log(createEmployee(200));
 console.log(createEmployee(500));
 console.log(createEmployee(1000));
+*/
+executeWork(createEmployee(200));
+executeWork(createEmployee(1000));
