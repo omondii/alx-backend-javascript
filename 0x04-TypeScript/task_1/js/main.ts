@@ -21,39 +21,65 @@ const printTeacher: printTeacherFunction = (firstName, lastName) => {
     return `${fn}. ${lastName}`
 }
 
+// Interface for the class constructor
+interface StudentConstructor {
+    new (firstName: string, lastName: string): StudentClass;
+}
 
-class st implements Teacher {
-    readonly firstName: string;
-    readonly lastName: string;
-    fullTimeEmployee: boolean;
-    yearsOfExperience?: number;
-    location: string;
-    [key: string]: any;
+// Interface for class methods
+interface StudentClass {
+    workOnHomework(): string;
+    displayName(): string;
+}
 
+// studentClass constructor implementation
+const StudentClass: StudentConstructor = class implements StudentClass {
+    private firstName: string;
+    private lastName: string;
 
-constructor(
-    firstName: string,
-    lastName: string,
-    fullTimeEmployee: boolean,
-    location: string,
-    yearsOfExperience?: number,
-    additionalAttributes?: { [key: string]: any }
-) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.fullTimeEmployee = fullTimeEmployee;
-    this.yearsOfExperience = yearsOfExperience;
-    this.location = location;
-
-    if (additionalAttributes) {
-        Object.keys(additionalAttributes).forEach((key) =>{
-            this[key] = additionalAttributes[key];
-        });
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
-  }
+
+    workOnHomework(): string {
+        return 'Currently working';
+    }
+
+    displayName(): string {
+        return this.firstName;
+    }
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 const teacher3: Teacher = {
     firstName: 'John',
     fullTimeEmployee: false,
@@ -69,5 +95,8 @@ const director1: Directors = {
     fullTimeEmployee: true,
     numberOfReports: 17,
   };
+
+  const test1 = printTeacher('john', 'doe');
   console.log(director1);
   console.log(teacher3);
+  */
