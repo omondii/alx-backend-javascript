@@ -16,7 +16,6 @@ describe('stdin input output', () =>{
 
     test('outputs correct name', () => {
         const name = 'Brian';
-
         childProcess.stdin.write(name + '\n');
         childProcess.stdout.on('data', (data) => {
             const output = data.toString().trim();
