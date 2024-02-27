@@ -1,5 +1,6 @@
 // Writes to stdin
-console.log('Welcome to Holberton School, what is your name?');
+function stdin () {
+    console.log('Welcome to Holberton School, what is your name?');
 process.stdin.on("data", (data) => {
     const name = data.toString().trim();
 
@@ -10,4 +11,7 @@ process.stdin.on("data", (data) => {
     }
     console.log('This important software in now closing');
     process.exit()
-})
+});
+}
+
+module.exports = stdin;
