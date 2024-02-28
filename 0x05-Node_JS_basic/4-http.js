@@ -1,10 +1,14 @@
 // A simple HTTP server using the http module
 const http = require('http');
 
-const server = http.createServer((req, res) => {
-   console.log('Request made');
+const port = 1245;
+const app = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello Holberton School!');
 });
 
-server.listen(1245, 'localhost', () => {
-   console.log('Listening on port 1245')
-})
+app.listen(port, 'localhost', () => {
+   console.log(`Listening on Port: ${port}`);
+});
+
+module.exports = app;
