@@ -6,11 +6,11 @@ const { join } = require('path');
 describe('stdin input output', () =>{
     var childProcess;
 
-    beforeEach(() => {
+    beforeAll(() => {
         childProcess = spawn('node', [join(__dirname, '1-stdin.js')]);
     });
 
-    afterEach(() => {
+    afterAll(() => {
         childProcess.kill();
     });
 
@@ -33,10 +33,11 @@ describe('stdin input output', () =>{
         });
     });
 
-    test('Exits after input', (done) => {
+    test('Exits after input', () => {
         childProcess.stdin.write('Anette\n');
         childProcess.once('exit', () => {
-            done();
+            
         });
     });
+    afterAll(() => childProcess.kill())
 })
