@@ -2,7 +2,7 @@
  * Test file for 0-calcul.js
 */
 const assert = require('assert');
-const calc = require('../0-calcul.js');
+const calc = require('./0-calcul.js');
 
 describe('Calculate Float Numbers', () => {
     it('Returns sum of numbers Rounded of', () => {
