@@ -4,7 +4,7 @@
  *@param {Number} @ Numbers to be rounded and acted on
  *@Returns the result of the operation passed
  */
-function calculateNumber(type, a, b){
+ function calculateNumber(type, a, b){
     if (type === 'SUM') {
         return Math.round(a) + Math.round(b);
     } else if (type === 'SUBTRACT') {
