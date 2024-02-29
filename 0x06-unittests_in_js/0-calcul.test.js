@@ -10,10 +10,14 @@ describe('Calculate Float Numbers', () => {
     });
 
     it('Rounds of for negative numbers', () => {
-        assert.strictEqual(calc(-1, 2.1), 1);
+        assert.strictEqual(calc(-1, -2.1), -3);
     });
 
     it('Test for 0s',() =>{
         assert.strictEqual(calc(0,0), 0);
+    });
+
+    it('Whole number addition', () => {
+        assert.equal(calc(4, 5), 9);
     });
 });
