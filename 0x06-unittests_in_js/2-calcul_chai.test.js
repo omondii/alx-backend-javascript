@@ -5,6 +5,7 @@
 const { expect } = require('chai');
 const calc = require('./2-calcul_chai.js');
 
+
 describe('CalculateNumber based on passed operation', () => {
     describe('Sum', () => {
         it('positive numbers', () => {
@@ -63,7 +64,7 @@ describe('CalculateNumber based on passed operation', () => {
             expect(calc('DIVIDE', 0.4, -0.3)).to.equal('Error');
         });
         it('Rounding negative 0s', () => {
-            expect(calc('DIVIDE', -11.6, 3)).to.equal(4);
+            expect(calc('DIVIDE', -11.6, 3)).to.equal(-4);
         });
     });
 });
