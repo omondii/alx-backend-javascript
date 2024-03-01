@@ -20,4 +20,7 @@ describe('Calculate Float Numbers', () => {
     it('Whole number addition', () => {
         assert.equal(calc(4, 5), 9);
     });
+    it('Rounded first number', () => {
+        assert.equal(calc(0.8, 2), 3);
+    })
 });
