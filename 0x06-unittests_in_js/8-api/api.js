@@ -9,3 +9,5 @@ console.log('API available on localhost port 7865')
 app.get('/', (request, response) => {
     response.send('Welcome to the payment system');
 });
+
+module.exports = app;
