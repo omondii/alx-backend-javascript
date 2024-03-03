@@ -4,6 +4,10 @@ const server = require('./api');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
+after((done) =>{
+    done();
+    process.exit(1);
+});
 
 describe('Tests for /', () => {
     it('Index page displays correct message', (done) =>{
@@ -11,8 +15,8 @@ describe('Tests for /', () => {
             if(response){
                 expect(response.statusCode).to.be.equal(200);
                 expect(response.body).to.be.equal('Welcome to the payment system');
-                done();
             }
+            done();
         });
     });
 });
@@ -25,8 +29,8 @@ describe('Tests for GET /cart/:id', () => {
             if(response) {
                 expect(response.statusCode).to.be.equal(200);
                 expect(body).to.equals(`Payment methods for cart:${id}`);
-                done()
             }
+            done();
         });
     });
     it('Returns 404 when id isnot a number', (done) => {
@@ -34,8 +38,8 @@ describe('Tests for GET /cart/:id', () => {
         request.get('http://localhost:7865/cart/${id}', (error, response, body) => {
             if (response) {
                 expect(response.statusCode).to.be.equal(404);
-                done();
             }
+            done();
         })
     })
 });
