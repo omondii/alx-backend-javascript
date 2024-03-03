@@ -4,11 +4,10 @@ const server = require('./api');
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 
-chai.use(chaiHttp);
 
 describe('Tests for /', () => {
     it('Index page displays correct message', (done) =>{
-        request.get(`https://localhost:7865`, (error, response, request) => {
+        request.get(`http://localhost:7865`, (error, response, request) => {
             if(response){
                 expect(response.statusCode).to.be.equal(200);
                 expect(response.body).to.be.equal('Welcome to the payment system');
@@ -43,7 +42,7 @@ describe('Tests for GET /cart/:id', () => {
 
 describe('Tests for /available_payments', () => {
     it('Correct statusCode and response', (done) => {
-        request.get(`https://localhost:7865/available_payments`, (error, response, body) => {
+        request.get(`http://localhost:7865/available_payments`, (error, response, body) => {
             if (response){
                 expect(response.statusCode).to.be.equal(200);
                 expect(body).to.be.equal(`{payment_methods: {credit_cards: true,paypal: false}}`);
