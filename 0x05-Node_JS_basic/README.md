@@ -172,4 +172,3 @@ Warning:
     Don’t forget to export your express app at the end of server.js (export default app;)
     The database filename is passed as argument of the server.js BUT, for testing purpose, you should retrieve this filename at the execution (when getAllStudents or getAllStudentsByMajor are called for example)
 
-
