@@ -13,7 +13,7 @@ app.get('/', (request, response) => {
 
 app.get('/cart/:id([0-9]+)', (request, response) => {
     const id = request.params.id;
-    response.send(`Payment methods for cart: ${id}`);
+    response.send(`Payment methods for cart:${id}`);
   });
 
 app.get('/available_payments', (request, response) => {
