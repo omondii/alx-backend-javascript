@@ -7,11 +7,12 @@ const chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
 describe('Tests for /', () => {
-    it('Index page displays correct message', () =>{
+    it('Index page displays correct message', (done) =>{
         request.get(`https://localhost:7865`, (error, response, request) => {
             if(response){
                 expect(response.statusCode).to.be.equal(200);
                 expect(response.body).to.be.equal('Welcome to the payment system');
+                done();
             }
         });
     });
@@ -24,7 +25,7 @@ describe('Tests for GET /cart/:id', () => {
         request.get(`http://localhost:7865/cart/${id}`, (error, response, body) => {
             if(response) {
                 expect(response.statusCode).to.be.equal(200);
-                expect(body).to.equals(`Payment methods for cart: ${id}`);
+                expect(body).to.equals(`Payment methods for cart:${id}`);
                 done()
             }
         });
